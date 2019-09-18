@@ -6,10 +6,13 @@ public class FloodFill {
 
 
     private static void floodFillUtil(int[][] arr, int x, int y, int prevValue, int newValue) {
+        //boundry condition
         if (x < 0 || x >= row || y < 0 || y >= column) return;
+        //if it's not the same value you visited previously,FO!!
         if (arr[x][y] != prevValue) return;
 
         arr[x][y] = newValue;
+        //Check for all four directions
         floodFillUtil(arr, x + 1, y, prevValue, newValue);
         floodFillUtil(arr, x - 1, y, prevValue, newValue);
         floodFillUtil(arr, x, y + 1, prevValue, newValue);
